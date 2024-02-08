@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\ca",
+    "\\src\\ca\\sait",
+    "\\src\\ca\\sait\\crs",
+    "\\src\\ca\\sait\\crs\\contracts",
+    "\\src\\ca\\sait\\crs\\factories",
+    "\\src\\ca\\sait\\crs\\models",
+    "\\src\\ca\\sait\\crs\\services"
+  ],
+  "SelectedNode": "\\CourseRegistrationSystem.eml",
+  "PreviewInSolutionExplorer": false
+}
