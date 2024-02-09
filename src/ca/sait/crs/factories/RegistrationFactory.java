@@ -46,7 +46,13 @@ public class RegistrationFactory {
      */
     private boolean validateCourse(Course course) {
         // TODO: Add logic to test course is valid.
-        return true;
+    	return course != null && 
+    	course.getCode() != null && 
+    	!course.getCode().isEmpty() && 
+    	course.getCode().length() <= 10 && 
+    	course.getName() != null && 
+    	!course.getName().isEmpty() && 
+    	course.getName().length() <= 50;
     }
 
     /**
@@ -56,6 +62,10 @@ public class RegistrationFactory {
      */
     private boolean validateStudent(Student student) {
         // TODO: Add logic to test student is valid.
-        return true;
+    	return student != null && 
+    	student.getName() != null && 
+    	!student.getName().isEmpty() && 
+    	student.getName().length() <= 50 && 
+    	student.getGpa() >= 0.00 && student.getGpa() <= 4.00;
     }
 }

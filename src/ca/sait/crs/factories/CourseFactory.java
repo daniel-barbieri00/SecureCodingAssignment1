@@ -44,7 +44,7 @@ public class CourseFactory {
      */
     private boolean validateCode(String code) {
         // TODO: Add logic to test code is valid.
-        return true;
+        return code.matches("^\\d{4}-\\d{3}$");
     }
 
     /**
@@ -54,7 +54,7 @@ public class CourseFactory {
      */
     private boolean validateName(String name) {
         // TODO: Add logic to test name is valid.
-        return true;
+        return name.matches("^[A-Za-z0-9\\s]{3,50}$");
     }
 
     /**
@@ -64,6 +64,6 @@ public class CourseFactory {
      */
     private boolean validateCredits(int credits) {
         // TODO: Add logic to test credits is valid.
-        return true;
+        return credits >= 0 && credits <= 3;
     }
 }
