@@ -1,37 +1,40 @@
 package ca.sait.crs.models;
 
-// TODO: Make this class immutable.
-
 /**
  * Represents a student.
  * @author Nick Hamnett <nick.hamnett@sait.ca>
  * @since June 1, 2023
  */
-public class Student implements ca.sait.crs.contracts.Student {
+public final class Student implements ca.sait.crs.contracts.Student {
     /**
      * Name of student
      */
-    private String name;
+    private final String name;
 
     /**
      * Students GPA (between 0.00 and 4.00)
      */
-    private double gpa;
+    private final double gpa;
 
     /**
      * Initializes instance.
      * @param name Name of student
      * @param gpa Student's GPA
+     * @throws IllegalArgumentException if the GPA is less than 0.00 or greater than 4.00
      */
     public Student(String name, double gpa) {
-        this.setName(name);
-        this.setGpa(gpa);
+        if (gpa < 0.00 || gpa > 4.00) {
+            throw new IllegalArgumentException("GPA must be between 0.00 and 4.00");
+        }
+        this.name = name;
+        this.gpa = gpa;
     }
 
     /**
      * Gets student's name
      * @return Name of student
      */
+    @Override
     public String getName() {
         return name;
     }
@@ -40,30 +43,11 @@ public class Student implements ca.sait.crs.contracts.Student {
      * Gets students GPA
      * @return GPA
      */
+    @Override
     public double getGpa() {
         return gpa;
     }
 
-    /**
-     * Sets the students name.
-     * @param name Name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Sets the students GPA
-     * @param gpa GPA
-     */
-    public void setGpa(double gpa) {
-        this.gpa = gpa;
-    }
-
-    /**
-     * Transforms Student instance to String
-     * @return Student's name
-     */
     @Override
     public String toString() {
         return this.getName();

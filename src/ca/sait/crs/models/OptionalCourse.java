@@ -9,16 +9,16 @@ import ca.sait.crs.contracts.Course;
  * @author Nick Hamnett <nick.hamnett@sait.ca>
  * @since June 1, 2023
  */
-public class OptionalCourse implements Course {
+public final class OptionalCourse implements Course {
     /**
      * Course code
      */
-    private String code;
+    private final String code;
 
     /**
      * Name of course
      */
-    private String name;
+    private final String name;
 
     /**
      * Initializes instance
@@ -26,14 +26,15 @@ public class OptionalCourse implements Course {
      * @param name Course name
      */
     public OptionalCourse(String code, String name) {
-        this.setCode(code);
-        this.setName(name);
+        this.code = code;
+        this.name = name;
     }
 
     /**
      * Gets course code
      * @return Course code
      */
+    @Override
     public String getCode() {
         return this.code;
     }
@@ -42,26 +43,12 @@ public class OptionalCourse implements Course {
      * Gets course name
      * @return Course name
      */
+    @Override
     public String getName() {
         return this.name;
     }
 
-    /**
-     * Sets the course code
-     * @param code Code
-     */
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    /**
-     * Sets the course name
-     * @param name Name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    @Override
     public String toString() {
         return String.format("%s (%s)", this.getName(), this.getCode());
     }

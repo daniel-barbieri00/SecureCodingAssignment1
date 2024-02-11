@@ -2,28 +2,26 @@ package ca.sait.crs.models;
 
 import ca.sait.crs.contracts.Course;
 
-// TODO: Make this class immutable.
-
 /**
  * Represents a required (for credit) course.
  * @author Nick Hamnett <nick.hamnett@sait.ca>
  * @since June 1, 2023
  */
-public class RequiredCourse implements Course {
+public final class RequiredCourse implements Course {
     /**
      * Course code
      */
-    private String code;
+    private final String code;
 
     /**
      * Course name
      */
-    private String name;
+    private final String name;
 
     /**
      * Course credits
      */
-    private int credits;
+    private final int credits;
 
     /**
      * Initializes instance
@@ -32,15 +30,19 @@ public class RequiredCourse implements Course {
      * @param credits Course credits (cannot be zero or negative)
      */
     public RequiredCourse(String code, String name, int credits) {
-        this.setCode(code);
-        this.setName(name);
-        this.setCredits(credits);
+        if (credits <= 0) {
+            throw new IllegalArgumentException("Credits must be greater than zero");
+        }
+        this.code = code;
+        this.name = name;
+        this.credits = credits;
     }
 
     /**
      * Gets course code
      * @return Course code
      */
+    @Override
     public String getCode() {
         return code;
     }
@@ -49,6 +51,7 @@ public class RequiredCourse implements Course {
      * Gets course name
      * @return Course name
      */
+    @Override
     public String getName() {
         return name;
     }
@@ -59,30 +62,6 @@ public class RequiredCourse implements Course {
      */
     public int getCredits() {
         return credits;
-    }
-
-    /**
-     * Sets the course code
-     * @param code Code
-     */
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    /**
-     * Sets the course name
-     * @param name Name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
-     * Sets the course credits
-     * @param credits Credits
-     */
-    public void setCredits(int credits) {
-        this.credits = credits;
     }
 
     @Override
