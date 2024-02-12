@@ -18,7 +18,8 @@ public class ProxyRegistrationService implements RegistrationService {
     private final RegistrationService realRegistrationService;
 
     public ProxyRegistrationService(RegistrationService realRegistrationService) {
-        this.realRegistrationService = Objects.requireNonNull(realRegistrationService, "RealRegistrationService cannot be null.");
+        this.realRegistrationService = Objects.requireNonNull(realRegistrationService,
+                "RealRegistrationService cannot be null.");
     }
 
     @Override
@@ -27,7 +28,7 @@ public class ProxyRegistrationService implements RegistrationService {
             realRegistrationService.registerStudent(student);
         } else {
             System.out.println("Student cannot be registered.");
-        }1
+        }
     }
 
     private boolean canRegisterStudent(Student student) {
