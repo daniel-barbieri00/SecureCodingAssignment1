@@ -2,11 +2,8 @@ package ca.sait.crs.factories;
 
 import ca.sait.crs.contracts.Course;
 import ca.sait.crs.contracts.Student;
-import ca.sait.crs.exceptions.CannotCreateCourseException;
 import ca.sait.crs.exceptions.CannotCreateRegistrationException;
-import ca.sait.crs.models.OptionalCourse;
 import ca.sait.crs.models.Registration;
-import ca.sait.crs.models.RequiredCourse;
 
 /**
  * Creates Registration instances.
@@ -20,12 +17,12 @@ public class RegistrationFactory {
 
     /**
      * Builds a Registration instance.
-     * @param course Course
      * @param student Student
+     * @param course Course
      * @return Registration instance
      * @throws CannotCreateRegistrationException Thrown if parameters are invalid.
      */
-    public Registration build(Course course, Student student) throws CannotCreateRegistrationException {
+    public static Registration build(Student student, Course course) throws CannotCreateRegistrationException {
         // Do not check if students is eligible for registration here.
 
         if (!this.validateCourse(course)) {
