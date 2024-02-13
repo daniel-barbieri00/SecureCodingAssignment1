@@ -38,13 +38,13 @@ public class CourseFactory {
     }
 
     /**
-     * Checks the course code is valid.
-     * @param code Course code
-     * @return True if the course code is valid.
-     */
-    private boolean validateCode(String code) {
-        // TODO: Add logic to test code is valid.
-        return code.matches("^\\d{4}-\\d{3}$");
+ * Checks if the course code is valid.
+ * @param code Course code
+ * @return True if the course code is valid.
+ */
+private boolean validateCode(String code) {
+    // TODO: Add logic to test code is valid.
+    return code.matches("^[A-Za-z]{4}-[0-9]{3}$");
     }
 
     /**
