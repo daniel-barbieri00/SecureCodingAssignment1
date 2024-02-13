@@ -22,14 +22,14 @@ public class RegistrationFactory {
      * @return Registration instance
      * @throws CannotCreateRegistrationException Thrown if parameters are invalid.
      */
-    public static Registration build(Student student, Course course) throws CannotCreateRegistrationException {
+    public Registration build(Student student, Course course) throws CannotCreateRegistrationException {
         // Do not check if students is eligible for registration here.
 
         if (!this.validateCourse(course)) {
             throw new CannotCreateRegistrationException("Course is invalid.");
         }
 
-        if (!this.validateStudent(student)) {
+        if (this.validateStudent(student)) {
             throw new CannotCreateRegistrationException("Student is invalid.");
         }
 

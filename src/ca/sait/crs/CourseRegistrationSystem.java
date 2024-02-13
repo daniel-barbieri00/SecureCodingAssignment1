@@ -26,7 +26,7 @@ public class CourseRegistrationSystem {
         // TODO: Wrap RealRegistrationService using your ProxyRegistrationService
         this.registrationService = new ProxyRegistrationService(new RealRegistrationService());
         // TODO: Create instance of StudentFactory.
-        StudentFactory studentFactory = new RealStudentFactory();
+        StudentFactory studentFactory = new StudentFactory();
     }
 
     /**
@@ -114,7 +114,7 @@ public class CourseRegistrationSystem {
      */
     private void register() {
         // TODO: Create instance of StudentFactory.
-        StudentFactory studentFactory = new RealStudentFactory();
+        StudentFactory studentFactory = new StudentFactory();
 
         System.out.print("Enter course code: ");
         String courseCode = this.scanner.nextLine();
